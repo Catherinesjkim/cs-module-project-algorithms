@@ -13,7 +13,7 @@ Returns: a List of integers
 # function which pushes all zeros to the end of an array
 def moving_zeroes(arr):
     # count stores index of next avaialable position
-    zero_counter = 0 # Count for non-zero elements
+    count = 0 # Count for non-zero elements
     mock_arr = arr.copy()
     
     if len(arr) == 0:
@@ -21,13 +21,13 @@ def moving_zeroes(arr):
     
     # traverse the array - access each and every element of the array for a specific purpose like counting
     for i in mock_arr:
-        # if current element is non-zero,
-        if i ==0:
+        # if current element is zero,
+        if i == 0:
             # then replace the element at index 'count' with this element
             # here count is incremented
             arr.remove(i)
             arr.append(i)
-            zero_counter += 1
+            count += 1
             
     return arr
 
