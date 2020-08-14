@@ -2,10 +2,16 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-def product_of_all_other_numbers(arr):
-    # Your code here
+#3 - Module 3: A First-Pass Solution
+# Naive solution: Create 2 extra space, i.e. 2 extra arrays to store the product of all the array elements from start, up to that index and another array to store the product of all the array elements from the end of the array to that index 
+# To get the product excluding that index, multiply the prefix product up to index i-1 with the suffix product up to index i+1 
+# Solve it without division operator in O(N) time
+# fn to print product array for a given array 
 
-    pass
+# we can exclude the nums[j] (where j != i) from list first, then get the product of the rest
+from functools import reduce
+def product_of_all_other_numbers(arr):
+    return [ reduce(lambda x, y: x * y, arr[:i] + arr[i+1:]) for i in range(len(arr))]
 
 
 if __name__ == '__main__':
